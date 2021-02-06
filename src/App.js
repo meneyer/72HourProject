@@ -7,6 +7,24 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const successfulLookup = position => {
+    const { latitude, longitude } = position.coords;
+    fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=1234`)
+      .then(response => response.json()
+      .then(console.log))
+   }
+
+  const lookupLocation = () => {
+    if (window.navigator.geolocation) {
+      console.log("geolocation available")
+      window.navigator.geolocation
+    .getCurrentPosition(successfulLookup, console.log("failure state"));
+    } else {
+      console.log("no geolocation")
+    }
+  }
+   
+
   return (
     <div>
       <Router>
