@@ -15,31 +15,27 @@ const GitJobs = () => {
     // `https://jobs.github.com/positions.json?lat=${props.latitude}&long=${props.longitude}`
 
     const getJobs = () => {
-        fetch("https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?lat=37.3229978&long=-122.0321823", {      
+        fetch("https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?lat=37.3229978&long=-122.0321823", {            
             headers: new Headers({
-                'access-control-allow-headers': "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+                'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
             })
         }).then (response => (response.json()))
             .then(data => console.log(data))
             .catch(err=> console.log("Error", err))
-        }       
+        }  
+        
+    // const getJobs = () => {
+    //     fetch("https://jobs.github.com/positions.json?lat=37.3229978&long=-122.0321823", {  
+    //         method: "GET",
+    //         mode: 'no-cors',          
+    //         headers: new Headers({
+    //             'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+    //         })
+    //     }).then (response => (response.json()))
+    //         .then(data => console.log(data))
+    //         .catch(err=> console.log("Error", err))
+    //     }  
     
-
-
-    function getJobs(){
-        const url = "https://jobs.github.com/positions.json?lat=37.3229978&long=-122.0321823"
-
-        fetch(url, {
-            'Access-Control-Allow-Origin': '*',
-            'Vary': 'Origin'
-        })
-        .then (response => response.json())
-        .then((json) => {
-            console.log(json)
-        })
-    }
-    
-
     return (
         <div>
             
