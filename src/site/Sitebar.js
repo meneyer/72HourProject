@@ -4,23 +4,25 @@ import GitJobs from "../components/GitJobs/GitJobs";
 import NASA from "../components/Nasa/Nasa";
 import OpenWeather from "../components/OpenWeather/OpenWeather";
 import Zomato from "../components/Zomato/Zomato";
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
 const Sitebar = (props) => {
     return (
-        <div className="sidebar">
-            <div className="sidebar-list-styling">
-                <ul className="sidebar-list list-unstyled">
-                    <li><Link to="/nasa">NASA</Link></li>
-                    <li><Link to="/openweather">Open Weather</Link></li>
-                    <li><Link to="/zomato">Zomato</Link></li>
-                    <li><Link to = "/gitjobs">GitJobs</Link></li>
-                </ul>
-        </div>
+
+        <div className="page">
+            <Nav tabs className="sidebar" id="top">
+                <div className="sidebar-list list-unstyled">
+                    <NavItem><Link to="/nasa">NASA</Link></NavItem>
+                    <NavItem><Link to="/openweather">Open Weather</Link></NavItem>
+                    <NavItem><Link to="/zomato">Zomato</Link></NavItem>
+                    <NavItem><Link to = "/gitjobs">GitJobs</Link></NavItem>
+                </div>
+        </Nav>
         <div className="sidebar-route">
             <Switch>
-                <Route exact path = "/nasa"><NASA /></Route>
-                <Route exact path = "/openweather"><OpenWeather latitude={props.latitude} longitude={props.longitude}/></Route>
-                <Route exact path = "/zomato"><Zomato /></Route>
+                <Route exact path = "/nasa"><NASA latitude={props.latitude} longitude={props.longitude}/></Route>
+                <Route exact path = "/openweather"><OpenWeather latitude={props.latitude} longitude={props.longitude} weather={props.weather}/></Route>
+                <Route exact path = "/zomato"><Zomato latitude={props.latitude} longitude={props.longitude}/></Route>
                 <Route exact path = "/gitjobs"><GitJobs latitude={props.latitude} longitude={props.longitude}/></Route>
             </Switch>
         </div>
