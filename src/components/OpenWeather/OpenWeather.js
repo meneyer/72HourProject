@@ -3,8 +3,9 @@ import React, {useState, useEffect} from 'react';
 const OpenWeather = (props) => {
     const [weather, setWeather] = useState({});
     const apiKey = "43eb2da9b4bf5ad4c050711b4732c0b0"
+    
 
-    async function fetchWeather(){
+    function fetchWeather(){
         fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${props.latitude}&lon=${props.longitude}&appid=${apiKey}&units=imperial`)
         .then((res) => res.json())
         .then((json) => {
@@ -12,8 +13,6 @@ const OpenWeather = (props) => {
             setWeather(json)
             
         });
-        // let newWeather = await weather;
-        // console.log(newWeather);
     }
 
     useEffect(() => {
