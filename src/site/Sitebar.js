@@ -5,7 +5,7 @@ import NASA from "../components/Nasa/Nasa";
 import OpenWeather from "../components/OpenWeather/OpenWeather";
 import Zomato from "../components/Zomato/Zomato";
 
-const Sitebar = () => {
+const Sitebar = (props) => {
     return (
         <div className="sidebar">
             <div className="sidebar-list-styling">
@@ -19,7 +19,7 @@ const Sitebar = () => {
         <div className="sidebar-route">
             <Switch>
                 <Route exact path = "/nasa"><NASA /></Route>
-                <Route exact path = "/openweather"><OpenWeather /></Route>
+                <Route exact path = "/openweather"><OpenWeather latitude={props.latitude} longitude={props.longitude}/></Route>
                 <Route exact path = "/zomato"><Zomato /></Route>
                 <Route exact path = "/gitjobs"><GitJobs /></Route>
             </Switch>
