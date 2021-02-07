@@ -21,7 +21,7 @@ const Sitebar = (props) => {
                 <Route exact path = "/nasa"><NASA /></Route>
                 <Route exact path = "/openweather"><OpenWeather latitude={props.latitude} longitude={props.longitude}/></Route>
                 <Route exact path = "/zomato"><Zomato /></Route>
-                <Route exact path = "/gitjobs"><GitJobs /></Route>
+                <Route exact path = "/gitjobs"><GitJobs latitude={props.latitude} longitude={props.longitude}/></Route>
             </Switch>
         </div>
     </div>
