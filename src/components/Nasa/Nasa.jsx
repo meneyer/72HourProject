@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-const Nasa = () => {
+const Nasa = (props) => {
   const baseUrl = "https://api.nasa.gov/planetary/earth/imagery";
-  let lon = "95.33";
-  let lat = "29.78";
+  let lon = `${props.latitude}`;
+  let lat = `${props.longitude}`;
   let date = "2018-01-01";
   const dim = "0.15";
   const key = "AlbKXiOG2eTvjRE5caNQzzpVU4sDRUZZOpV8KaD8";
@@ -11,12 +11,14 @@ const Nasa = () => {
 
   // TEMP ADDRESS https://api.nasa.gov/planetary/earth/imagery?lon=-95.33&lat=29.78&date=2018-01-01&dim=0.15&api_key=DEMO_KEY
 
-  const [pic, setPic] = useState("");
+  // const [pic, setPic] = useState("");
 
   function handleFetch() {
-    fetch(url).then((pic) => {
-      setPic();
-    });
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   }
 
   return (
