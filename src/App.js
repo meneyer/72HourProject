@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 function App() {
+
   const [address, setAddress] = useState('');
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
@@ -39,8 +40,7 @@ function App() {
 }, []);
    
 
-
-  return (
+return (
     <div>
       <Router>
         <Sitebar address={address} latitude={latitude} longitude={longitude} />
