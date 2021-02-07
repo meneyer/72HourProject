@@ -14,21 +14,19 @@ const GitJobs = () => {
     // `https://jobs.github.com/positions.json?lat=${props.latitude}&long=${props.longitude}`
 
     const getJobs = () => {
-        fetch("https://api.chucknorris.io/jokes/random", {
-            method: "GET",
-            mode: 'no-cors',
+        fetch("https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?lat=37.3229978&long=-122.0321823", {      
             headers: new Headers({
-                "Access-Control-Allow-Origin": "*",
+                'access-control-allow-headers': "Origin, X-Requested-With, Content-Type, Accept, Authorization",
             })
         }).then (response => (response.json()))
-            .then((json) => {
-                console.log(json)
-            })
-        }
+            .then(data => console.log(data))
+            .catch(err=> console.log("Error", err))
+        }       
     
 
     return (
         <div>
+            
             <button onClick={getJobs}>Find Employment Opportunities</button>
         </div>
     );
