@@ -4,7 +4,10 @@ const OpenWeather = (props) => {
     // const [weather, setWeather] = useState({});
     const apiKey = "43eb2da9b4bf5ad4c050711b4732c0b0"
     const [displayW, setDisplayW] = useState("");
+    const [fah, setFah] = useState(true);
     console.log(props.weather);
+    let temp= props.weather.main.temp;
+    console.log(temp)
     
     // function fetchWeather(){
     //     // if (props.latitude !== "" && props.longitude !== "") {
@@ -34,7 +37,23 @@ const OpenWeather = (props) => {
     //         </div>)
     //     }
     // }
+    // let cel = 0;
+    
+    // function convert (fah) {
+    //     let cel = (fah - 32) * (5/9);
+        
+    //     return cel;
+    // }
+    let cel = (temp - 32) * (5/9);
+    function toggleFah() {
+        setFah(fah => !fah)
+        // fah = true ? setFah(false) : setFah(true);
+        
+        console.log(cel)
+        return cel;
+    }
 
+    
     return (
         <div>
             <p>At latitude: {props.latitude} and Longitude: {props.longitude}</p>
@@ -44,7 +63,7 @@ const OpenWeather = (props) => {
             <div>
             <p>(That's {props.weather.name})</p>
             <p>{props.weather.weather[0].description}</p>
-            <p>Temperature: {props.weather.main.temp}f</p>
+            <button onClick={toggleFah}>Fahrenheit/Celcius</button><p>Temperature: {fah === true ? `${temp}F`: `${cel}C`}</p>
             <p>Wind speed: {props.weather.wind.speed}</p> 
             </div>
             : ""}
