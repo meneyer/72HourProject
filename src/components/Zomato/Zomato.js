@@ -3,7 +3,7 @@ import React from 'react';
 const Zomato = () => {
     return (
         <div>
-            Kaplan - Zomato
+            Kaplans - Zomato
         </div>
     );
 }
