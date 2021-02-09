@@ -19,9 +19,25 @@ html, body {
   background-color: navy;
 }
 
+#top a{
+  color: white;  
+}
+
 .sidebar-route {
   padding: 20px;
   text-align: center;
+}
+
+.page h1{
+  text-align: center;
+  padding: 10px;
+  color: navy;
+}
+
+.page h4{
+  text-align: center;
+  padding: 0px 0px 10px 0px;
+  color: navy;
 }
 
 /* .App-logo {

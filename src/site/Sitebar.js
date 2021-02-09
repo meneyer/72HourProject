@@ -10,6 +10,8 @@ const Sitebar = (props) => {
     return (
 
         <div className="page">
+            <h1> 72-Hour Project:  Team Tron</h1>
+            <h4>Eleven Fifty Academy -- February 2021</h4>
             <Nav tabs className="sidebar" id="top">
                 <div className="sidebar-list list-unstyled">
                     <NavItem><Link to="/nasa">NASA</Link></NavItem>

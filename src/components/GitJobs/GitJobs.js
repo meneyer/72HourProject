@@ -4,6 +4,12 @@ import {CardColumns, Col} from 'reactstrap';
 
 const GitJobs = (props) => {   
 
+    const gitJobsStyles = {       
+        backgroundColor: "purple",
+        padding: "15px",       
+        fontFamily: "Arial"
+    };
+
     const [jobs, setJobs] = useState("")
     // const [description, setDescription] = useState('');
     // const [title, setTitle] = useState('');
@@ -12,8 +18,8 @@ const GitJobs = (props) => {
     function getJobs(){
         // if (props.latitude !== "" && props.longitude !=="") {            
         
-        // fetch(`https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?location=New+York`, {
-        fetch (`https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?lat=${props.latitude}&long=${props.longitude}`,{            
+        fetch(`https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?location=New+York`, {
+        // fetch (`https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?lat=${props.latitude}&long=${props.longitude}`,{            
             headers: new Headers({
                 'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
             })
@@ -34,7 +40,9 @@ const GitJobs = (props) => {
     }
                 
     return (
-        <div>            
+        <div class = "gitJobs" style={gitJobsStyles}>
+            <h1 style={{color: "white"}}>GitJobs API Listings</h1>
+            <h4 style={{color: "white", padding: "0px 0px 15px 0px"}}>(up to four open positions displayed based on your location)</h4>            
             <CardColumns>
                 {displayJobs()} 
             </CardColumns>
