@@ -51,4 +51,5 @@ const GitJobs = (props) => {
 
 //End product needs to list 4 jobs with a link to each job (URL in the json data)--Based on your location list 4 jobs and descriptions from the gitjobs api. Make sure to include a button or a link to visit the full job listing on github (link is in the json data).
 
+// 
 export default GitJobs; 
