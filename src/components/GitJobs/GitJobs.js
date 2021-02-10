@@ -17,18 +17,17 @@ const GitJobs = (props) => {
 
     function getJobs(){
         // if (props.latitude !== "" && props.longitude !=="") {            
-        
-        fetch(`https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?location=New+York`, {
-        // fetch (`https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?lat=${props.latitude}&long=${props.longitude}`,{            
-            headers: new Headers({
-                'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-            })
-        }).then (response => (response.json()))       
-        .then((json) => {
-            console.log(json);
-            setJobs(json)           
-        })      
-    }   
+            // fetch(`https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?location=New+York`, {
+                fetch (`https://efa-cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?lat=${props.latitude}&long=${props.longitude}`,{            
+                    headers: new Headers({
+                        'access-control-allow-headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+                    })
+                }).then (response => (response.json()))       
+                .then((json) => {
+                    console.log(json);
+                    setJobs(json)           
+                })      
+            }             
 
     useEffect(() => {
         getJobs();
