@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "reactstrap";
 
 const Nasa = (props) => {
   // const current = new Date();
@@ -29,15 +30,16 @@ const Nasa = (props) => {
 
   return (
     <div>
-      <p>You're being watched by NASA</p>
+      <h4>You're being watched by NASA</h4>
       <br />
-      <button onClick={handleFetch}>I can see my house from here</button>
+      <Button size="lg" color="info" onClick={handleFetch}>
+        Find Me
+      </Button>
       <hr />
       <br />
+      <h4>The date of this image capture is from: {date}</h4>
       <img width="75%" height="75%" src={image} alt="Satellite Location" />
-      <div>
-        <p>The date of this image capture is from: {date}</p>
-      </div>
+      <div></div>
     </div>
   );
 };
